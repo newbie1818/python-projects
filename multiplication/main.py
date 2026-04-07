@@ -10,7 +10,7 @@ def random_number():
         count = 0
         while count <= 2:
 
-            result = input("Type in your answer:>")
+            result = input("Type in your answer:>").casefold()
             if result == "exit":
                 sys.exit()
 

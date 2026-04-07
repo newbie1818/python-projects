@@ -11,25 +11,20 @@ def random_number():
 
             result = input("Type in your answer:>")
 
-            if result.isdigit() == False:
-                print("Enter a number")
-                continue
+            try:
+                if (int(result) == mult):
+                    print("Correct")
+                    break
 
-            elif (int(result) == mult):
-                print("Correct")
-                break
+                elif count == 2:
+                    print(f"It was the last attempt. The correct answer is {mult}")
 
+                else:
+                    print("Make one more attempt")
+                count = count + 1
 
-            elif count == 2:
-
-                print(f"It was the last attempt. The correct answer is {mult}")
-
-            else:
-                print("Make one more attempt")
-            count = count + 1
-
-
-
+            except ValueError:
+                print("Enter a valid number")
 
 random_number()
 

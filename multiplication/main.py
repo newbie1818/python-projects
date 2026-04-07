@@ -1,4 +1,5 @@
 import random
+import sys
 def random_number():
     while True:
         num1 = random.randint(1, 9)
@@ -10,6 +11,8 @@ def random_number():
         while count <= 2:
 
             result = input("Type in your answer:>")
+            if result == "exit":
+                sys.exit()
 
             try:
                 if (int(result) == mult):

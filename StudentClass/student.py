@@ -1,9 +1,3 @@
-# Создай класс Student с:
-# - атрибутами: name, grades (список оценок)
-# - методами:
-#   - add_grade(grade)     — добавить оценку в список
-#   - get_average()        — вернуть среднюю оценку
-#   - get_highest()        — вернуть самую высокую оценку
 
 class Student():
 
@@ -12,10 +6,14 @@ class Student():
         self.grades = grades
 
     def add_grade(self, grade):
+        if not isinstance(grade, (int, float)):
+            raise TypeError("Grade must be a number")
+        elif grade < 0:
+            raise TypeError("Grade must be a positive number")
         self.grades.append(grade)
 
     def get_average(self):
-        if len(self.grades) ==0:
+        if len(self.grades) == 0:
             return None
         else:
             return round(sum(self.grades) / len(self.grades))
@@ -29,7 +27,7 @@ student2 = Student("Anna", [90, 45, 87, 70])
 
 print(student1.name)
 print(student1.grades)
-student1.add_grade(95)
+student1.add_grade(90)
 print(student1.grades)
 print(student1.get_average())
 print(student1.get_highest())

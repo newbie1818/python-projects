@@ -9,8 +9,8 @@ def load_tasks():
         return list_of_tasks
     else:
         with open (PATH, "r") as f:
-            content = json.load(f)
-            return content
+            return json.load(f)
+
 def show_task():
     for i in list_of_tasks:
         if i['progress']:
@@ -44,6 +44,34 @@ def delete_task():
             list_of_tasks.remove(i)
     # save the updated list
     save_tasks(list_of_tasks)
+
+def main():
+#downloading tasks
+    global list_of_tasks
+    list_of_tasks = load_tasks()
+    while True:
+        print("1. ADD TASK")
+        print ("2. SHOW TASK")
+        print ("3. DELETE TASK")
+        print ("4. EXIT")
+
+        choice = input("Choose an option ")
+
+        if choice == "1":
+            add_task()
+            print("The task has been added")
+        elif choice == "2":
+            show_task()
+        elif choice == "3":
+            delete_task()
+            print("Your task has been deleted")
+        elif choice == "4":
+            break
+
+if __name__ == "__main__":
+    main()
+
+
 
 
 
